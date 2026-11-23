@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Native SQLite
+        run: sudo apt-get install -y --no-install-recommends libsqlite3-0
+
+      - name: Build (analyzers on, warnings are errors)
+        run: dotnet build HavenHub.sln -c Release -warnaserror
+
+      - name: Unit, data and integration tests + requirement traceability
+        run: dotnet run -c Release --no-build --project tests/HavenHub.Tests -- --matrix
+
+      - name: Dependency check (no third-party packages, ADR-0001)
+        run: |
+          if grep -rn "PackageReference" --include=*.csproj --include=*.props --include=*.targets .; then
+            echo "Third-party NuGet packages are not allowed (see docs/adr/0001-no-third-party-packages.md)"; exit 1
+          fi
+          echo "No PackageReference found: nothing third-party to audit."
+
+      - name: End-to-end demo (real server + simulated devices)
+        run: scripts/run-demo.sh demo
+
+      - name: Smoke load test
+        run: scripts/run-demo.sh load --homes 20 --seconds 10 --workers 16

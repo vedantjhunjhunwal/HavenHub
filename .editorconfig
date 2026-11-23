@@ -1,0 +1,40 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+
+[*.{json,yml,yaml,html,css,js,md}]
+indent_size = 2
+
+[*.cs]
+# Code style enforced at build time (EnforceCodeStyleInBuild).
+csharp_style_namespace_declarations = file_scoped:warning
+dotnet_style_readonly_field = true:warning
+csharp_prefer_braces = when_multiline:silent
+dotnet_diagnostic.IDE0005.severity = warning   # unnecessary using
+dotnet_diagnostic.IDE0161.severity = warning   # file-scoped namespaces
+dotnet_diagnostic.IDE0044.severity = warning   # make field readonly
+
+# Security analyzers are all errors (AnalysisModeSecurity=All + TreatWarningsAsErrors).
+# Documented suppressions (each reviewed; see docs/security/static-analysis.md):
+dotnet_diagnostic.CA2007.severity = none   # ConfigureAwait: ASP.NET Core and console apps have no SynchronizationContext
+dotnet_diagnostic.CA1848.severity = none   # LoggerMessage delegates: logging volume is low; readability preferred
+dotnet_diagnostic.CA1303.severity = none   # Localised resources: CLI/tool output is English-only
+dotnet_diagnostic.CA1515.severity = none   # Make public types internal: types are shared with the test project
+dotnet_diagnostic.CA1724.severity = none   # Type names conflicting with namespaces (e.g. Devices)
+dotnet_diagnostic.CA1062.severity = none   # Null-check public args: nullable reference analysis already enforces this
+
+[{tools,tests}/**.cs]
+# The simulator and tests use seeded System.Random on purpose so load runs are reproducible.
+# Nothing security-relevant is generated with it (device and token secrets come from the server's CSPRNG).
+dotnet_diagnostic.CA5394.severity = none
+
+[tests/**.cs]
+# Test names are sentences (Disarming_during_entry_delay_prevents_the_alarm) and tests are instance
+# methods because the runner creates a fresh instance per test.
+dotnet_diagnostic.CA1707.severity = none
+dotnet_diagnostic.CA1822.severity = none

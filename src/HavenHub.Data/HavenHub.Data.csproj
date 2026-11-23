@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\HavenHub.Core\HavenHub.Core.csproj" />
+  </ItemGroup>
+
+</Project>

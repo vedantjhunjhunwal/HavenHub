@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HavenHub home security and automation dashboard">
+  <title>HavenHub</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="app.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>HavenHub</h1>
+    <nav aria-label="Account">
+      <span id="whoami" class="muted"></span>
+      <button id="logout" type="button" class="link" hidden>Sign out</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="auth" class="card narrow" aria-labelledby="auth-title">
+      <h2 id="auth-title">Sign in</h2>
+      <form id="auth-form" autocomplete="on">
+        <label>Email <input id="email" type="email" required autocomplete="username"></label>
+        <label>Password <input id="password" type="password" required minlength="12" autocomplete="current-password"></label>
+        <div class="row">
+          <button type="submit">Sign in</button>
+          <button id="register" type="button" class="secondary">Create account</button>
+        </div>
+        <p id="auth-error" class="error" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="app" hidden>
+      <div class="row toolbar">
+        <label>Home <select id="home-select" aria-label="Choose a home"></select></label>
+        <details>
+          <summary>New home</summary>
+          <form id="home-form" class="inline">
+            <input id="home-name" placeholder="Name" required maxlength="80">
+            <input id="home-pin" placeholder="Panel PIN" required inputmode="numeric" pattern="[0-9]{4,8}">
+            <button type="submit">Create</button>
+          </form>
+        </details>
+      </div>
+
+      <div class="grid">
+        <article id="panel" class="card" aria-labelledby="panel-title">
+          <h2 id="panel-title">Security</h2>
+          <p class="status"><span id="mode" class="badge">-</span> <span id="alarm" class="badge">-</span></p>
+          <p id="countdown" class="muted" aria-live="polite"></p>
+          <p id="open-sensors" class="muted"></p>
+          <div class="row">
+            <button type="button" data-arm="ArmedStay">Arm Stay</button>
+            <button type="button" data-arm="ArmedAway">Arm Away</button>
+          </div>
+          <form id="disarm-form" class="inline">
+            <input id="pin" type="password" inputmode="numeric" placeholder="PIN" required pattern="[0-9]{4,8}" autocomplete="off">
+            <button type="submit" class="danger">Disarm</button>
+          </form>
+          <p id="panel-error" class="error" role="alert"></p>
+        </article>
+
+        <article class="card wide" aria-labelledby="devices-title">
+          <h2 id="devices-title">Devices</h2>
+          <ul id="devices" class="devices"></ul>
+          <p id="device-error" class="error" role="alert"></p>
+        </article>
+
+        <article class="card" aria-labelledby="events-title">
+          <h2 id="events-title">Activity <span id="live" class="dot" title="Live updates"></span></h2>
+          <ol id="events" class="events" aria-live="polite"></ol>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <template id="device-template">
+    <li class="device">
+      <div class="device-head"><span class="online-dot"></span><strong class="name"></strong><span class="kind muted"></span></div>
+      <p class="state"></p>
+      <div class="actions"></div>
+    </li>
+  </template>
+</body>
+</html>

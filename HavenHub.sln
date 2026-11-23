@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6EA46221-9367-4F53-87E2-0370F5481314}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HavenHub.Api", "src\HavenHub.Api\HavenHub.Api.csproj", "{F83FFF8D-1278-43D6-9811-BB63DBE1DA72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HavenHub.Core", "src\HavenHub.Core\HavenHub.Core.csproj", "{E84AE018-034A-447F-A2B8-093BDF7AFBCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HavenHub.Data", "src\HavenHub.Data\HavenHub.Data.csproj", "{A767D728-2FAB-4D9B-AF18-CF5D37F3C91A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{6B52DAF0-ED77-4E46-A575-9674A7E41338}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HavenHub.DeviceSim", "tools\HavenHub.DeviceSim\HavenHub.DeviceSim.csproj", "{15A00303-BCD9-4DF7-80EB-A46E1C3BF9C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{11090895-E46F-4BFE-A1B8-C33A2DC50F92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HavenHub.Tests", "tests\HavenHub.Tests\HavenHub.Tests.csproj", "{FD438791-5CE7-4826-A780-8433E50C40A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F83FFF8D-1278-43D6-9811-BB63DBE1DA72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F83FFF8D-1278-43D6-9811-BB63DBE1DA72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F83FFF8D-1278-43D6-9811-BB63DBE1DA72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F83FFF8D-1278-43D6-9811-BB63DBE1DA72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E84AE018-034A-447F-A2B8-093BDF7AFBCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E84AE018-034A-447F-A2B8-093BDF7AFBCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E84AE018-034A-447F-A2B8-093BDF7AFBCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E84AE018-034A-447F-A2B8-093BDF7AFBCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A767D728-2FAB-4D9B-AF18-CF5D37F3C91A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A767D728-2FAB-4D9B-AF18-CF5D37F3C91A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A767D728-2FAB-4D9B-AF18-CF5D37F3C91A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A767D728-2FAB-4D9B-AF18-CF5D37F3C91A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15A00303-BCD9-4DF7-80EB-A46E1C3BF9C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15A00303-BCD9-4DF7-80EB-A46E1C3BF9C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15A00303-BCD9-4DF7-80EB-A46E1C3BF9C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15A00303-BCD9-4DF7-80EB-A46E1C3BF9C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD438791-5CE7-4826-A780-8433E50C40A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD438791-5CE7-4826-A780-8433E50C40A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD438791-5CE7-4826-A780-8433E50C40A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD438791-5CE7-4826-A780-8433E50C40A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F83FFF8D-1278-43D6-9811-BB63DBE1DA72} = {6EA46221-9367-4F53-87E2-0370F5481314}
+		{E84AE018-034A-447F-A2B8-093BDF7AFBCB} = {6EA46221-9367-4F53-87E2-0370F5481314}
+		{A767D728-2FAB-4D9B-AF18-CF5D37F3C91A} = {6EA46221-9367-4F53-87E2-0370F5481314}
+		{15A00303-BCD9-4DF7-80EB-A46E1C3BF9C3} = {6B52DAF0-ED77-4E46-A575-9674A7E41338}
+		{FD438791-5CE7-4826-A780-8433E50C40A4} = {11090895-E46F-4BFE-A1B8-C33A2DC50F92}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\HavenHub.Core\HavenHub.Core.csproj" />
+    <ProjectReference Include="..\..\src\HavenHub.Data\HavenHub.Data.csproj" />
+    <ProjectReference Include="..\..\src\HavenHub.Api\HavenHub.Api.csproj" />
+    <ProjectReference Include="..\..\tools\HavenHub.DeviceSim\HavenHub.DeviceSim.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+</Project>
