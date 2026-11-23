@@ -29,7 +29,7 @@ jobs:
 
       - name: Dependency check (no third-party packages, ADR-0001)
         run: |
-          if grep -rn "PackageReference" --include=*.csproj --include=*.props --include=*.targets .; then
+          if grep -rn "<PackageReference" --include=*.csproj --include=*.props --include=*.targets --exclude-dir=obj --exclude-dir=bin .; then
             echo "Third-party NuGet packages are not allowed (see docs/adr/0001-no-third-party-packages.md)"; exit 1
           fi
           echo "No PackageReference found: nothing third-party to audit."
